@@ -1,7 +1,7 @@
 import EmployeesListItem from "../employees-list-item/employees-list-item";
 import './employees-list.css'
 
-const EmployeesList = ({data}) => {
+const EmployeesList = ({data, onDelete}) => {
 
     //// If there is no unique indexer
     // const elements = data.map((item, i) => {
@@ -14,7 +14,8 @@ const EmployeesList = ({data}) => {
         const {id, ...itemProps} = item;
         return (
             // name = {item.name} salary={item.salary} ===  {...item}
-            <EmployeesListItem key={id} {...itemProps}/>
+            <EmployeesListItem key={id} {...itemProps}
+                               onDelete = {() => onDelete(id)}/>
         )
     })
 
